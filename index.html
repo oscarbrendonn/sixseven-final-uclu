@@ -33,16 +33,17 @@ tr.ref td{background:#fffdf2}
 <div class="badge">67 Character</div>
 <div class="sub">leg &amp; arm variants · A is the untouched reference</div>
 <model-viewer id="mv" src="all4.glb" alt="67 character variants" camera-controls touch-action="pan-y"
- interaction-prompt="none" shadow-intensity="0.9" exposure="1.05" min-field-of-view="4deg"
+ interaction-prompt="none" shadow-intensity="0.9" exposure="1.05"
+ min-field-of-view="3deg" max-field-of-view="30deg" field-of-view="9deg"
  bounds="tight" camera-orbit="0deg 82deg auto"></model-viewer>
 <div class="meta" id="meta">all four side by side — A · B · C · D (left to right, same scale)</div>
 <div class="tabs">
-  <button class="on" data-s="all4.glb" data-o="0deg 82deg auto" data-m="all four side by side — A · B · C · D (left to right, same scale)">all 4</button>
+  <button class="on" data-s="all4.glb" data-o="0deg 82deg auto" data-f="9deg" data-m="all four side by side — A · B · C · D (left to right, same scale)">all 4</button>
   <div class="sep"></div>
-  <button data-s="original.glb"  data-o="15deg 82deg auto" data-m="A · ORIGINAL (untouched) — height 3.0233 · arm 2.4994 · arm/height 0.8267">A · original</button>
-  <button data-s="f113.glb"      data-o="15deg 82deg auto" data-m="B — height 3.1510 (+4.2%) · arm 2.6585 (+6.4%) · arm/height 0.8437">B · legs +4.2%</button>
-  <button data-s="f121.glb"      data-o="15deg 82deg auto" data-m="C — height 3.2296 (+6.8%) · arm 2.7248 (+9.0%) · arm/height 0.8437">C · legs +6.8%</button>
-  <button data-s="uzunbacak.glb" data-o="15deg 82deg auto" data-m="D — height 3.2689 (+8.1%) · arm 2.4994 (0%) · arm/height 0.7646 · widened legs">D · legs +8.1%</button>
+  <button data-s="original.glb"  data-o="12deg 82deg auto" data-f="8deg" data-m="A · ORIGINAL (untouched) — height 3.0233 · arm 2.4994 · arm/height 0.8267">A · original</button>
+  <button data-s="f113.glb"      data-o="12deg 82deg auto" data-f="8deg" data-m="B — height 3.1510 (+4.2%) · arm 2.6585 (+6.4%) · arm/height 0.8437">B · legs +4.2%</button>
+  <button data-s="f121.glb"      data-o="12deg 82deg auto" data-f="8deg" data-m="C — height 3.2296 (+6.8%) · arm 2.7248 (+9.0%) · arm/height 0.8437">C · legs +6.8%</button>
+  <button data-s="uzunbacak.glb" data-o="12deg 82deg auto" data-f="8deg" data-m="D — height 3.2689 (+8.1%) · arm 2.4994 (0%) · arm/height 0.7646 · widened legs">D · legs +8.1%</button>
   <div class="sep"></div>
   <button id="chartBtn">measurements</button>
 </div>
@@ -72,7 +73,7 @@ tr.ref td{background:#fffdf2}
 const mv=document.getElementById('mv'), meta=document.getElementById('meta');
 document.querySelectorAll('.tabs button[data-s]').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabs button[data-s]').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); mv.src=b.dataset.s; mv.setAttribute('camera-orbit', b.dataset.o); meta.textContent=b.dataset.m;
+  b.classList.add('on'); mv.src=b.dataset.s; mv.setAttribute('camera-orbit', b.dataset.o); mv.setAttribute('field-of-view', b.dataset.f); meta.textContent=b.dataset.m;
 });
 document.getElementById('chartBtn').onclick=()=>document.getElementById('chart').classList.add('on');
 document.getElementById('closeBtn').onclick=()=>document.getElementById('chart').classList.remove('on');
