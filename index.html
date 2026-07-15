@@ -32,14 +32,14 @@ tr.ref td{background:#fffdf2}
        border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit}
 </style></head><body>
 <div class="badge">67 Character</div>
-<div class="sub">6 variants · A is the untouched reference</div>
-<model-viewer id="mv" src="all6.glb" alt="67 character variants" camera-controls touch-action="pan-y"
+<div class="sub">7 variants · A is the untouched reference</div>
+<model-viewer id="mv" src="all7.glb" alt="67 character variants" camera-controls touch-action="pan-y"
  interaction-prompt="none" shadow-intensity="0.9" exposure="1.05"
  min-field-of-view="3deg" max-field-of-view="30deg" field-of-view="9deg"
  bounds="tight" camera-orbit="0deg 82deg auto"></model-viewer>
-<div class="meta" id="meta">all six side by side — A · B · C · D · E · F (left to right, same scale)</div>
+<div class="meta" id="meta">all seven side by side — A · B · C · D · E · F · G (left to right, same scale)</div>
 <div class="tabs">
-  <button class="on" data-s="all6.glb" data-f="10deg" data-o="0deg 82deg auto" data-m="all six side by side — A · B · C · D · E · F (left to right, same scale)">all 6</button>
+  <button class="on" data-s="all7.glb" data-f="11deg" data-o="0deg 82deg auto" data-m="all seven side by side — A · B · C · D · E · F · G (left to right, same scale)">all 7</button>
   <div class="sep"></div>
   <button data-s="original.glb"  data-f="8deg" data-o="12deg 82deg auto" data-m="A · ORIGINAL (untouched) — height 3.0233 · arm 2.4994 · arm/height 0.8267">A · original</button>
   <button data-s="f113.glb"      data-f="8deg" data-o="12deg 82deg auto" data-m="B — height 3.1510 (+4.2%) · arm 2.6585 (+6.4%) · arm/height 0.8437">B · legs +4.2%</button>
@@ -47,12 +47,13 @@ tr.ref td{background:#fffdf2}
   <button data-s="uzunbacak.glb" data-f="8deg" data-o="12deg 82deg auto" data-m="D — height 3.2689 (+8.1%) · arm 2.7580 (+10.3%) · arm/height 0.8437">D · legs +8.1%</button>
   <button data-s="e_wider.glb"   data-f="8deg" data-o="12deg 82deg auto" data-m="E — D with wider legs · height 3.2689 · arm 2.7580 · thigh 0.314 · knee 0.286 · ankle 0.273">E · D + wider legs</button>
   <button data-s="f_wider2.glb" data-f="8deg" data-o="12deg 82deg auto" data-m="F — E with the legs widened once more · height 3.2689 · arm 2.7580 · thigh 0.324 · knee 0.293 · ankle 0.276">F · E + wider again</button>
+  <button data-s="g_body.glb" data-f="8deg" data-o="12deg 82deg auto" data-m="G — F with the whole body widened · height 3.2689 · arm 2.7580 · chest 0.619 · hem 0.621 · hip 0.689 · thigh 0.333">G · F + wider body</button>
   <div class="sep"></div>
   <button id="chartBtn">measurements</button>
 </div>
 <div class="chart" id="chart">
   <button class="close" id="closeBtn">close</button>
-  <h2>67 Character — 6 variants · A is the untouched original (all rendered at the same scale)</h2>
+  <h2>67 Character — 7 variants · A is the untouched original (all rendered at the same scale)</h2>
   <img src="measurements.png" alt="measurement chart">
   <table>
     <tr><th>variant</th><th>height</th><th>vs A</th><th>arm span</th><th>vs A</th><th>arm/height</th></tr>
@@ -62,6 +63,7 @@ tr.ref td{background:#fffdf2}
     <tr><td>D · legs +8.1%</td><td>3.2689</td><td>+8.1%</td><td>2.7580</td><td>+10.3%</td><td>0.8437</td></tr>
     <tr><td>E · D + wider legs</td><td>3.2689</td><td>+8.1%</td><td>2.7580</td><td>+10.3%</td><td>0.8437</td></tr>
     <tr><td>F · E + wider again</td><td>3.2689</td><td>+8.1%</td><td>2.7580</td><td>+10.3%</td><td>0.8437</td></tr>
+    <tr><td>G · F + wider body</td><td>3.2689</td><td>+8.1%</td><td>2.7580</td><td>+10.3%</td><td>0.8437</td></tr>
   </table>
   <table>
     <tr><th>widths</th><th>chest</th><th>hoodie hem</th><th>hip</th><th>thigh</th><th>knee</th><th>ankle</th></tr>
@@ -70,25 +72,27 @@ tr.ref td{background:#fffdf2}
     <tr><td>C</td><td>0.634</td><td>0.620</td><td>0.687</td><td>0.340</td><td>0.288</td><td>0.275</td></tr>
     <tr><td>D</td><td>0.614</td><td>0.599</td><td>0.645</td><td>0.304</td><td>0.278</td><td>0.267</td></tr>
     <tr><td>E</td><td>0.614</td><td>0.603</td><td>0.657</td><td>0.314</td><td>0.286</td><td>0.273</td></tr>
-    <tr><td>F</td><td>0.614</td><td>0.607</td><td>0.670</td><td><b>0.324</b></td><td><b>0.293</b></td><td><b>0.276</b></td></tr>
+    <tr><td>F</td><td>0.614</td><td>0.607</td><td>0.670</td><td>0.324</td><td>0.293</td><td>0.276</td></tr>
+    <tr><td>G</td><td><b>0.619</b></td><td><b>0.621</b></td><td><b>0.689</b></td><td><b>0.333</b></td><td><b>0.295</b></td><td>0.276</td></tr>
   </table>
   <table>
-    <tr><th>what was done</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
-    <tr><td>leg stretch (hip→ankle, shoes rigid)</td><td>—</td><td>×1.13</td><td>×1.21</td><td>×1.25</td><td>×1.25</td><td>×1.25</td></tr>
-    <tr><td>arm stretch (shoulder→wrist, hands rigid)</td><td>—</td><td>+6.4%</td><td>+9.0%</td><td>+10.3%</td><td>+10.3%</td><td>+10.3%</td></tr>
-    <tr><td>hoodie hem widened (lattice, by hand)</td><td>—</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
-    <tr><td>oversize cut (lattice, by hand)</td><td>—</td><td>yes</td><td>yes</td><td>—</td><td>—</td><td>—</td></tr>
-    <tr><td>leg width (lattice, by hand)</td><td>—</td><td>—</td><td>—</td><td>—</td><td><b>1×</b></td><td><b>2×</b></td></tr>
-    <tr><td>head · hair · hands · shoes</td><td colspan="6" style="text-align:center">untouched in every variant</td></tr>
-    <tr><td>texture · colour</td><td colspan="6" style="text-align:center">identical in every variant (4K source, no decimation)</td></tr>
-    <tr><td>vertices / polygons</td><td colspan="6" style="text-align:center">787,741 verts · 1,445,601 polys (identical topology)</td></tr>
+    <tr><th>what was done</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr>
+    <tr><td>leg stretch (hip→ankle, shoes rigid)</td><td>—</td><td>×1.13</td><td>×1.21</td><td>×1.25</td><td>×1.25</td><td>×1.25</td><td>×1.25</td></tr>
+    <tr><td>arm stretch (shoulder→wrist, hands rigid)</td><td>—</td><td>+6.4%</td><td>+9.0%</td><td>+10.3%</td><td>+10.3%</td><td>+10.3%</td><td>+10.3%</td></tr>
+    <tr><td>hoodie hem widened (lattice, by hand)</td><td>—</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
+    <tr><td>oversize cut (lattice, by hand)</td><td>—</td><td>yes</td><td>yes</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>leg width (lattice, by hand)</td><td>—</td><td>—</td><td>—</td><td>—</td><td><b>1×</b></td><td><b>2×</b></td><td><b>2×</b></td></tr>
+    <tr><td>whole body widened (lattice, by hand)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><b>yes</b></td></tr>
+    <tr><td>head · hair · hands · shoes</td><td colspan="7" style="text-align:center">untouched in every variant</td></tr>
+    <tr><td>texture · colour</td><td colspan="7" style="text-align:center">identical in every variant (4K source, no decimation)</td></tr>
+    <tr><td>vertices / polygons</td><td colspan="7" style="text-align:center">787,741 verts · 1,445,601 polys (identical topology)</td></tr>
   </table>
   <p class="note"><b>Units.</b> Blender units, all models at the same scale — only ratios matter.
   <b>Not listed:</b> shoulder width and leg-length percentage could not be measured reliably
   (the baggy trouser legs merge, so the crotch line cannot be detected automatically), so they are
   left out rather than guessed. <b>E</b> is D with the trouser legs widened by hand (thigh +3.3%, knee +2.9%, ankle +2.2%).
-  <b>F</b> is E widened once more (thigh +3.2%, knee +2.4%, ankle +1.1% on top of E). Height is identical
-  in D, E and F — 3.2689 — the widening never changed leg length.</p>
+  <b>F</b> is E widened once more (thigh +3.2%, knee +2.4%, ankle +1.1% on top of E). <b>G</b> is F with the whole garment widened (chest +0.8%, hem +2.3%, hip +2.8%, thigh +2.8%).
+  Height is identical in D, E, F and G — 3.2689 — no widening ever changed leg length.</p>
 </div>
 <script>
 const mv=document.getElementById('mv'), meta=document.getElementById('meta');
