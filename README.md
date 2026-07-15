@@ -14,22 +14,22 @@ Head, hair, hands and shoes are untouched in every variant.
 | **A · original (untouched)** | 3.0233 | — | 2.4994 | — | 0.8267 |
 | **B** | 3.1510 | +4.2% | 2.6585 | +6.4% | 0.8437 |
 | **C** | 3.2296 | +6.8% | 2.7248 | +9.0% | 0.8437 |
-| **D** | 3.2689 | +8.1% | 2.4994 | 0.0% | 0.7646 |
+| **D** | 3.2689 | +8.1% | 2.7580 | +10.3% | 0.8437 |
 
 | what was done | A | B | C | D |
 |---|---|---|---|---|
 | leg stretch (hip→ankle, shoes rigid) | — | ×1.13 | ×1.21 | ×1.25 |
-| arm stretch (shoulder→wrist, hands rigid) | — | +6.4% | +9.0% | — |
+| arm stretch (shoulder→wrist, hands rigid) | — | +6.4% | +9.0% | +10.3% |
 | hoodie hem widened (lattice, by hand) | — | yes | yes | yes |
 | oversize cut (lattice, by hand) | — | yes | yes | — |
-| leg width (lattice, by hand) | — | — | — | yes |
+| leg width (lattice, by hand) | — | — | — | — |
 
 ## Method
 
 - **Leg stretch** — everything above the hip (40% of height) stays fixed; hip→ankle is stretched
   vertically; the shoe moves down rigidly, so its shape is never deformed.
 - **Arm stretch** — shoulder stays fixed, arm stretches outward, the hand shifts rigidly (hands never grow).
-  B and C are tuned so **arm/height = 0.8437** — the proportion of the visual reference.
+  B, C and D are tuned so **arm/height = 0.8437** — the proportion of the visual reference.
 - **Hoodie hem / oversize cut / leg width** — shaped by hand with lattices, then baked.
 - Texture stretches vertically where the mesh was stretched, but the garment is flat black,
   so it is invisible.
