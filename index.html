@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>67 — kilitli karakter · final üçlü</title>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+html,body{margin:0;height:100%;background:#d9d9dc;font-family:-apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden}
+model-viewer{width:100vw;height:100vh;--poster-color:#d9d9dc}
+.badge{position:fixed;top:14px;left:16px;color:#1a1a1a;font-size:15px;font-weight:600;letter-spacing:-0.01em}
+.sub{position:fixed;top:35px;left:16px;color:#666;font-size:13px}
+.tabs{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:5px;
+      background:rgba(255,255,255,0.84);backdrop-filter:blur(12px);padding:5px;border-radius:11px;
+      box-shadow:0 2px 14px rgba(0,0,0,0.12)}
+.tabs button{border:0;background:transparent;padding:9px 18px;border-radius:8px;font-size:13px;
+             color:#333;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .15s}
+.tabs button:hover{background:rgba(0,0,0,0.05)}
+.tabs button.on{background:#1a1a1a;color:#fff}
+.meta{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);color:#555;font-size:12px;
+      background:rgba(255,255,255,0.78);padding:4px 12px;border-radius:6px;white-space:nowrap}
+</style></head><body>
+<div class="badge">67 — kilitli karakter</div>
+<div class="sub">final üçlü · oversize kalıp + kol/bacak oranı sabit</div>
+<model-viewer id="mv" src="orijinal.glb" alt="67 kilitli karakter" camera-controls touch-action="pan-y"
+ interaction-prompt="none" shadow-intensity="0.9" exposure="1.05" min-field-of-view="4deg"
+ bounds="tight" camera-orbit="15deg 82deg auto"></model-viewer>
+<div class="meta" id="meta">boy 3.0233 · kol 2.5508 · kol/boy 0.8437</div>
+<div class="tabs">
+  <button class="on" data-s="orijinal.glb" data-m="boy 3.0233 · kol 2.5508 · kol/boy 0.8437 · bacak dokunulmamis">ORİJİNAL</button>
+  <button data-s="f113.glb" data-m="boy 3.1510 (+%4.2) · kol 2.6585 (+%4.2) · kol/boy 0.8437">f1.13</button>
+  <button data-s="f121.glb" data-m="boy 3.2296 (+%6.8) · kol 2.7248 (+%6.8) · kol/boy 0.8437">f1.21</button>
+</div>
+<script>
+const mv=document.getElementById('mv'), meta=document.getElementById('meta');
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); mv.src=b.dataset.s; meta.textContent=b.dataset.m;
+});
+</script></body></html>
