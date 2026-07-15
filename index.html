@@ -11,13 +11,13 @@ model-viewer{width:100vw;height:100vh;--poster-color:var(--bg)}
 .sub{position:fixed;top:35px;left:16px;color:var(--mut);font-size:13px}
 .tabs{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:5px;align-items:center;
       background:var(--card);backdrop-filter:blur(12px);padding:5px;border-radius:11px;box-shadow:0 2px 14px rgba(0,0,0,0.12)}
-.tabs button{border:0;background:transparent;padding:9px 16px;border-radius:8px;font-size:13px;color:#333;
+.tabs button{border:0;background:transparent;padding:9px 15px;border-radius:8px;font-size:13px;color:#333;
              cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .15s}
 .tabs button:hover{background:rgba(0,0,0,0.05)}
 .tabs button.on{background:var(--fg);color:#fff}
 .sep{width:1px;height:22px;background:#d5d5d8;margin:0 3px}
 .meta{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);color:#555;font-size:12px;
-      background:rgba(255,255,255,0.8);padding:5px 13px;border-radius:6px;white-space:nowrap}
+      background:rgba(255,255,255,0.8);padding:5px 13px;border-radius:6px;white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
 .chart{position:fixed;inset:0;background:rgba(217,217,220,0.97);display:none;overflow:auto;padding:20px;box-sizing:border-box}
 .chart.on{display:block}
 .chart img{max-width:100%;height:auto;display:block;margin:0 auto;box-shadow:0 2px 20px rgba(0,0,0,0.14)}
@@ -26,50 +26,53 @@ table{border-collapse:collapse;margin:22px auto 0;font-size:13px;background:#fff
 th,td{padding:9px 16px;border-bottom:1px solid #eee;text-align:right}
 th:first-child,td:first-child{text-align:left}
 th{background:#f6f6f7;font-weight:600;color:#444}
+tr.ref td{background:#fffdf2}
 .close{position:fixed;top:14px;right:18px;border:0;background:var(--fg);color:#fff;padding:8px 15px;
        border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit}
 </style></head><body>
 <div class="badge">67 Character</div>
-<div class="sub">leg &amp; arm variants · same texture, same colour</div>
-<model-viewer id="mv" src="orijinal.glb" alt="67 character" camera-controls touch-action="pan-y"
+<div class="sub">leg &amp; arm variants · A is the untouched reference</div>
+<model-viewer id="mv" src="all4.glb" alt="67 character variants" camera-controls touch-action="pan-y"
  interaction-prompt="none" shadow-intensity="0.9" exposure="1.05" min-field-of-view="4deg"
- bounds="tight" camera-orbit="15deg 82deg auto"></model-viewer>
-<div class="meta" id="meta">height 3.0233 · arm 2.5508 · arm/height 0.8437</div>
+ bounds="tight" camera-orbit="0deg 82deg auto"></model-viewer>
+<div class="meta" id="meta">all four side by side — A · B · C · D (left to right, same scale)</div>
 <div class="tabs">
-  <button class="on" data-s="orijinal.glb"  data-m="A — height 3.0233 · arm 2.5508 · arm/height 0.8437 · legs untouched">A · original</button>
-  <button data-s="f113.glb"      data-m="B — height 3.1510 (+4.2%) · arm 2.6585 (+4.2%) · arm/height 0.8437">B · legs +4.2%</button>
-  <button data-s="f121.glb"      data-m="C — height 3.2296 (+6.8%) · arm 2.7248 (+6.8%) · arm/height 0.8437">C · legs +6.8%</button>
-  <button data-s="uzunbacak.glb" data-m="D — height 3.2689 (+8.1%) · arm 2.4994 (-2.0%) · arm/height 0.7646 · wider legs">D · legs +8.1%</button>
+  <button class="on" data-s="all4.glb" data-o="0deg 82deg auto" data-m="all four side by side — A · B · C · D (left to right, same scale)">all 4</button>
+  <div class="sep"></div>
+  <button data-s="original.glb"  data-o="15deg 82deg auto" data-m="A · ORIGINAL (untouched) — height 3.0233 · arm 2.4994 · arm/height 0.8267">A · original</button>
+  <button data-s="f113.glb"      data-o="15deg 82deg auto" data-m="B — height 3.1510 (+4.2%) · arm 2.6585 (+6.4%) · arm/height 0.8437">B · legs +4.2%</button>
+  <button data-s="f121.glb"      data-o="15deg 82deg auto" data-m="C — height 3.2296 (+6.8%) · arm 2.7248 (+9.0%) · arm/height 0.8437">C · legs +6.8%</button>
+  <button data-s="uzunbacak.glb" data-o="15deg 82deg auto" data-m="D — height 3.2689 (+8.1%) · arm 2.4994 (0%) · arm/height 0.7646 · widened legs">D · legs +8.1%</button>
   <div class="sep"></div>
   <button id="chartBtn">measurements</button>
 </div>
 <div class="chart" id="chart">
   <button class="close" id="closeBtn">close</button>
-  <h2>67 Character — leg &amp; arm variants (all rendered at the same scale)</h2>
+  <h2>67 Character — leg &amp; arm variants · A is the untouched original (all rendered at the same scale)</h2>
   <img src="measurements.png" alt="measurement chart">
   <table>
-    <tr><th>variant</th><th>height</th><th>vs A</th><th>arm span</th><th>vs A</th><th>arm/height</th><th>legs</th></tr>
-    <tr><td>A · original</td><td>3.0233</td><td>—</td><td>2.5508</td><td>—</td><td>0.8437</td><td>untouched</td></tr>
-    <tr><td>B</td><td>3.1510</td><td>+4.2%</td><td>2.6585</td><td>+4.2%</td><td>0.8437</td><td>stretched ×1.13</td></tr>
-    <tr><td>C</td><td>3.2296</td><td>+6.8%</td><td>2.7248</td><td>+6.8%</td><td>0.8437</td><td>stretched ×1.21</td></tr>
-    <tr><td>D</td><td>3.2689</td><td>+8.1%</td><td>2.4994</td><td>-2.0%</td><td>0.7646</td><td>×1.25 + widened</td></tr>
+    <tr><th>variant</th><th>height</th><th>vs A</th><th>arm span</th><th>vs A</th><th>arm/height</th></tr>
+    <tr class="ref"><td>A · original (untouched)</td><td>3.0233</td><td>—</td><td>2.4994</td><td>—</td><td>0.8267</td></tr>
+    <tr><td>B</td><td>3.1510</td><td>+4.2%</td><td>2.6585</td><td>+6.4%</td><td>0.8437</td></tr>
+    <tr><td>C</td><td>3.2296</td><td>+6.8%</td><td>2.7248</td><td>+9.0%</td><td>0.8437</td></tr>
+    <tr><td>D</td><td>3.2689</td><td>+8.1%</td><td>2.4994</td><td>0.0%</td><td>0.7646</td></tr>
   </table>
   <table>
     <tr><th>what was done</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
-    <tr><td>leg stretch (hip→ankle, shoes kept rigid)</td><td>—</td><td>×1.13</td><td>×1.21</td><td>×1.25</td></tr>
-    <tr><td>arm stretch (shoulder→wrist, hands kept rigid)</td><td>×1.04</td><td>×1.04 +7.1%</td><td>×1.04 +11.2%</td><td>—</td></tr>
-    <tr><td>hoodie hem widened (lattice, by hand)</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
-    <tr><td>oversize cut (lattice, by hand)</td><td>yes</td><td>yes</td><td>yes</td><td>—</td></tr>
+    <tr><td>leg stretch (hip→ankle, shoes rigid)</td><td>—</td><td>×1.13</td><td>×1.21</td><td>×1.25</td></tr>
+    <tr><td>arm stretch (shoulder→wrist, hands rigid)</td><td>—</td><td>+6.4%</td><td>+9.0%</td><td>—</td></tr>
+    <tr><td>hoodie hem widened (lattice, by hand)</td><td>—</td><td>yes</td><td>yes</td><td>yes</td></tr>
+    <tr><td>oversize cut (lattice, by hand)</td><td>—</td><td>yes</td><td>yes</td><td>—</td></tr>
     <tr><td>leg width (lattice, by hand)</td><td>—</td><td>—</td><td>—</td><td>yes</td></tr>
     <tr><td>head · hair · hands · shoes</td><td colspan="4" style="text-align:center">untouched in all variants</td></tr>
-    <tr><td>texture · colour</td><td colspan="4" style="text-align:center">identical in all variants (4K, no decimation)</td></tr>
+    <tr><td>texture · colour</td><td colspan="4" style="text-align:center">identical in all variants (4K source, no decimation)</td></tr>
   </table>
 </div>
 <script>
 const mv=document.getElementById('mv'), meta=document.getElementById('meta');
 document.querySelectorAll('.tabs button[data-s]').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabs button[data-s]').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); mv.src=b.dataset.s; meta.textContent=b.dataset.m;
+  b.classList.add('on'); mv.src=b.dataset.s; mv.setAttribute('camera-orbit', b.dataset.o); meta.textContent=b.dataset.m;
 });
 document.getElementById('chartBtn').onclick=()=>document.getElementById('chart').classList.add('on');
 document.getElementById('closeBtn').onclick=()=>document.getElementById('chart').classList.remove('on');
